@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@benjeau/react-native-draw": ["./packages/react-native-draw/src"],
+      "@benjeau/react-native-draw": [
+        "./packages/react-native-draw/src"
+      ],
       "@benjeau/react-native-draw-extras": [
         "./packages/react-native-draw-extras/src"
       ]
@@ -14,7 +16,9 @@
     "forceConsistentCasingInFileNames": true,
     "composite": true,
     "jsx": "react",
-    "lib": ["esnext"],
+    "lib": [
+      "esnext"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
@@ -29,6 +33,7 @@
     "target": "esnext"
   },
   "exclude": [
-    "packages/*/lib",
-  ]
+    "packages/*/lib"
+  ],
+  "extends": "expo/tsconfig.base"
 }

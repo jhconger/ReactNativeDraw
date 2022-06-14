@@ -67,7 +67,7 @@ export default () => {
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{ title: '@benjeau/react-native-draw' }}
+            options={{ title: 'Kokoro' }}
           />
           <Stack.Screen
             name="SimpleExample"
