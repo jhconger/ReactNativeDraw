@@ -2,6 +2,7 @@ import { useTheme } from '@react-navigation/native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
 import {
+  Dimensions,
   ScrollView,
   StyleSheet,
   Text,
@@ -12,7 +13,11 @@ import {
 
 import type { RootStackParamList } from '../App';
 import { Button } from '../components';
+import styled from 'styled-components/native';
+import { Video, AVPlaybackStatus } from 'expo-av';
 
+const { width, height } = Dimensions.get('window');
+const videoPath = require('./../assets/Serenity.mp4');
 type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const Home: React.FC<HomeProps> = ({ navigation }) => {
