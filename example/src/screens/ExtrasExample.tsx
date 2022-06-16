@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 import { Canvas, CanvasRef, DrawingTool } from '@benjeau/react-native-draw';
 import {
   BrushProperties,
@@ -40,13 +40,13 @@ export default () => {
 
       Animated.timing(overlayOpacity, {
         toValue: 1,
-        duration: 200,
+        duration: 2200,
         useNativeDriver: true,
       }).start();
     } else {
       Animated.timing(overlayOpacity, {
         toValue: 0,
-        duration: 200,
+        duration: 2200,
         useNativeDriver: true,
       }).start(() => {
         setVisibleBrushProperties(false);
@@ -68,44 +68,42 @@ export default () => {
           borderColor: theme.colors.border,
         }}
       />
-      <View>
-        <CanvasControls
-          onUndo={handleUndo}
-          onClear={handleClear}
-          onToggleEraser={handleToggleEraser}
-          onToggleBrushProperties={handleToggleBrushProperties}
-          tool={tool}
+      <CanvasControls
+        onUndo={handleUndo}
+        onClear={handleClear}
+        onToggleEraser={handleToggleEraser}
+        onToggleBrushProperties={handleToggleBrushProperties}
+        tool={tool}
+        color={color}
+        opacity={opacity}
+        thickness={thickness}
+      />
+      {visibleBrushProperties && (
+        <BrushProperties
           color={color}
-          opacity={opacity}
           thickness={thickness}
+          opacity={opacity}
+          onColorChange={setColor}
+          onThicknessChange={setThickness}
+          onOpacityChange={setOpacity}
+          sliderColor={theme.colors.text}
+          //@ts-ignore
+          style={{
+            position: 'absolute',
+            bottom: 80,
+            left: 0,
+            right: 0,
+            padding: 10,
+            backgroundColor: theme.colors.background,
+            borderTopEndRadius: 10,
+            borderTopStartRadius: 10,
+            borderWidth: StyleSheet.hairlineWidth,
+            borderBottomWidth: 0,
+            borderTopColor: '#ccc',
+            opacity: overlayOpacity,
+          }}
         />
-        {visibleBrushProperties && (
-          <BrushProperties
-            color={color}
-            thickness={thickness}
-            opacity={opacity}
-            onColorChange={setColor}
-            onThicknessChange={setThickness}
-            onOpacityChange={setOpacity}
-            sliderColor={theme.colors.text}
-            //@ts-ignore
-            style={{
-              position: 'absolute',
-              bottom: 80,
-              left: 0,
-              right: 0,
-              padding: 10,
-              backgroundColor: theme.colors.background,
-              borderTopEndRadius: 10,
-              borderTopStartRadius: 10,
-              borderWidth: StyleSheet.hairlineWidth,
-              borderBottomWidth: 0,
-              borderTopColor: '#ccc',
-              opacity: overlayOpacity,
-            }}
-          />
-        )}
-      </View>
+      )}
     </>
   );
 };
