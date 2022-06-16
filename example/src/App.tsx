@@ -15,16 +15,7 @@ import type {
 } from '@benjeau/react-native-draw-extras';
 
 import {
-  CanvasExample,
-  Home,
-  ExampleSelection,
-  ExtrasExample,
-  MoreComplexExample,
-  SimpleExample,
-  BrushPreviewExample,
-  BrushPropertiesExample,
-  CanvasControlsExample,
-  ColorPickerExample,
+  ExtrasExample
 } from './screens';
 
 export type RootStackParamList = {
@@ -65,58 +56,9 @@ export default () => {
       >
         <Stack.Navigator>
           <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{ title: 'Kokoro' }}
-          />
-          <Stack.Screen
-            name="SimpleExample"
-            component={SimpleExample}
-            options={{ title: 'Simple Example' }}
-          />
-          <Stack.Screen
-            name="MoreComplexExample"
-            component={MoreComplexExample}
-            options={{ title: 'Complex Example' }}
-          />
-          <Stack.Screen
             name="ExtrasExample"
             component={ExtrasExample}
             options={{ title: 'Extras Example' }}
-          />
-          <Stack.Screen
-            name="CanvasExample"
-            component={CanvasExample}
-            options={{ title: 'Canvas Example' }}
-          />
-          <Stack.Screen
-            name="BrushPreviewExample"
-            component={BrushPreviewExample}
-            options={{ title: 'BrushPreview Example' }}
-          />
-          <Stack.Screen
-            name="BrushPropertiesExample"
-            component={BrushPropertiesExample}
-            options={{ title: 'BrushProperties Example' }}
-          />
-          <Stack.Screen
-            name="CanvasControlsExample"
-            component={CanvasControlsExample}
-            options={{ title: 'CanvasControls Example' }}
-          />
-          <Stack.Screen
-            name="ColorPickerExample"
-            component={ColorPickerExample}
-            options={{ title: 'ColorPicker Example' }}
-          />
-          <Stack.Screen
-            name="ExampleSelection"
-            component={ExampleSelection}
-            options={({
-              route: {
-                params: { title },
-              },
-            }) => ({ title })}
           />
         </Stack.Navigator>
       </NavigationContainer>
