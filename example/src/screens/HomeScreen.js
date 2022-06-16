@@ -10,7 +10,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import styled from 'styled-components/native';
-import { Video, AVPlaybackStatus } from 'expo-av';
+// import { Video, AVPlaybackStatus } from 'expo-av';
 
 const { width, height } = Dimensions.get('window');
 const videoPath = require('../../assets/Serenity.mp4');
