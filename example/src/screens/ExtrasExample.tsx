@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Animated, StyleSheet } from 'react-native';
+import { Animated, StyleSheet, View } from 'react-native';
 import { Canvas, CanvasRef, DrawingTool } from '@benjeau/react-native-draw';
 import {
   BrushProperties,
@@ -68,6 +68,7 @@ export default () => {
           borderColor: theme.colors.border,
         }}
       />
+      <View>
       <CanvasControls
         onUndo={handleUndo}
         onClear={handleClear}
@@ -104,6 +105,7 @@ export default () => {
           }}
         />
       )}
+      </View>
     </>
   );
 };
