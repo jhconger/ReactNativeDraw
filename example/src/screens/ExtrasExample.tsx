@@ -69,42 +69,42 @@ export default () => {
         }}
       />
       <View>
-      <CanvasControls
-        onUndo={handleUndo}
-        onClear={handleClear}
-        onToggleEraser={handleToggleEraser}
-        onToggleBrushProperties={handleToggleBrushProperties}
-        tool={tool}
-        color={color}
-        opacity={opacity}
-        thickness={thickness}
-      />
-      {visibleBrushProperties && (
-        <BrushProperties
+        <CanvasControls
+          onUndo={handleUndo}
+          onClear={handleClear}
+          onToggleEraser={handleToggleEraser}
+          onToggleBrushProperties={handleToggleBrushProperties}
+          tool={tool}
           color={color}
-          thickness={thickness}
           opacity={opacity}
-          onColorChange={setColor}
-          onThicknessChange={setThickness}
-          onOpacityChange={setOpacity}
-          sliderColor={theme.colors.text}
-          //@ts-ignore
-          style={{
-            position: 'absolute',
-            bottom: 80,
-            left: 0,
-            right: 0,
-            padding: 10,
-            backgroundColor: theme.colors.background,
-            borderTopEndRadius: 10,
-            borderTopStartRadius: 10,
-            borderWidth: StyleSheet.hairlineWidth,
-            borderBottomWidth: 0,
-            borderTopColor: '#ccc',
-            opacity: overlayOpacity,
-          }}
+          thickness={thickness}
         />
-      )}
+        {visibleBrushProperties && (
+          <BrushProperties
+            color={color}
+            thickness={thickness}
+            opacity={opacity}
+            onColorChange={setColor}
+            onThicknessChange={setThickness}
+            onOpacityChange={setOpacity}
+            sliderColor={theme.colors.text}
+            //@ts-ignore
+            style={{
+              position: 'absolute',
+              bottom: 80,
+              left: 0,
+              right: 0,
+              padding: 10,
+              backgroundColor: theme.colors.background,
+              borderTopEndRadius: 10,
+              borderTopStartRadius: 10,
+              borderWidth: StyleSheet.hairlineWidth,
+              borderBottomWidth: 0,
+              borderTopColor: '#ccc',
+              opacity: overlayOpacity,
+            }}
+          />
+        )}
       </View>
     </>
   );
