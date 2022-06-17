@@ -7,6 +7,7 @@ import React, {
 import {
   Animated,
   Dimensions,
+  ImageBackground,
   StyleProp,
   StyleSheet,
   View,
@@ -225,7 +226,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
     simplifyOptions = {
       simplifyPaths: true,
       simplifyCurrentPath: false,
-      amount: 15,
+      amount: 42,
       roundPoints: true,
       ...simplifyOptions,
     };
@@ -437,12 +438,29 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
       })
       .shouldCancelWhenOutside(true)
       .enabled(enabled);
-
+    const s = StyleSheet.create({
+      backgroundImage: {
+        flex: 1,
+        width: screenWidth,
+        height: screenHeight -220,
+        backgroundColor: 'red',
+        opacity: .99,
+      },
+    });
     return (
       <GestureHandlerRootView style={canvasContainerStyles}>
         <Animated.View>
           <GestureDetector gesture={panGesture}>
             <View>
+              <ImageBackground
+                source={{
+                  'example/src/assets/KOKOROlogo.png'
+                  // uri: 'https://picsum.photos/200/300'
+                }}
+                style={s.backgroundImage}
+              >
+                <View />
+              </ImageBackground>
               <RendererHelper
                 currentColor={color}
                 currentOpacity={opacity}
@@ -472,6 +490,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   canvasOverlay: {
+    // imageBackground: source={require('example/src/assets/KOKOROlogo.png')},
     position: 'absolute',
     height: '100%',
     width: '100%',

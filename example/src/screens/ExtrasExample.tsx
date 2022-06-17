@@ -13,7 +13,7 @@ export default () => {
 
   const canvasRef = useRef<CanvasRef>(null);
 
-  const [color, setColor] = useState(DEFAULT_COLORS[0][0][0]);
+  const [color, setColor] = useState(DEFAULT_COLORS[0][0][9]);
   const [thickness, setThickness] = useState(5);
   const [opacity, setOpacity] = useState(1);
   const [tool, setTool] = useState(DrawingTool.Brush);
@@ -40,13 +40,13 @@ export default () => {
 
       Animated.timing(overlayOpacity, {
         toValue: 1,
-        duration: 2200,
+        duration: 200,
         useNativeDriver: true,
       }).start();
     } else {
       Animated.timing(overlayOpacity, {
         toValue: 0,
-        duration: 2200,
+        duration: 200,
         useNativeDriver: true,
       }).start(() => {
         setVisibleBrushProperties(false);
@@ -56,9 +56,11 @@ export default () => {
 
   return (
     <>
+
+
       <Canvas
         ref={canvasRef}
-        height={600}
+        height={625}
         color={color}
         thickness={thickness}
         opacity={opacity}
@@ -67,8 +69,10 @@ export default () => {
           borderBottomWidth: StyleSheet.hairlineWidth,
           borderColor: theme.colors.border,
         }}
+
       />
       <View>
+
         <CanvasControls
           onUndo={handleUndo}
           onClear={handleClear}

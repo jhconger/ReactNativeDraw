@@ -1,5 +1,5 @@
 export { default as Home } from './Home';
-export { default as SplashPage } from './SplashPage';
+// export { default as SplashPage } from './SplashPage';
 export { default as SimpleExample } from './SimpleExample';
 export { default as MoreComplexExample } from './MoreComplexExample';
 export { default as ExtrasExample } from './ExtrasExample';
