@@ -4,6 +4,10 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
+import { Video, AVPlaybackStatus } from 'expo-av';
+
+// const { width, height } = Dimensions.get('window');
+const videoPath = require('/Users/justinconger/ReactNative/ReactNativeDraw/example/src/assets/KOKOROlogo.png');
 import {
   Animated,
   Dimensions,
@@ -30,7 +34,6 @@ import { DrawingTool, PathDataType, PathType } from './types';
 import { createSVGPath } from './utils';
 import SVGRenderer from './renderer/SVGRenderer';
 import RendererHelper from './renderer/RendererHelper';
-
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 export interface CanvasProps {
@@ -226,7 +229,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
     simplifyOptions = {
       simplifyPaths: true,
       simplifyCurrentPath: false,
-      amount: 42,
+      amount: 21,
       roundPoints: true,
       ...simplifyOptions,
     };
@@ -442,25 +445,39 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
       backgroundImage: {
         flex: 1,
         width: screenWidth,
-        height: screenHeight -220,
+        height: screenHeight - 220,
         backgroundColor: 'red',
-        opacity: .99,
+        opacity: 1,
       },
     });
+
     return (
+
       <GestureHandlerRootView style={canvasContainerStyles}>
         <Animated.View>
           <GestureDetector gesture={panGesture}>
             <View>
               <ImageBackground
-                source={{
-                  'example/src/assets/KOKOROlogo.png'
-                  // uri: 'https://picsum.photos/200/300'
-                }}
+                // source={require('example/src/assets/img.png')}
+                // source={{ uri: 'https://picsum.photos/200/300' }}
+                // source={{ uri: 'https://loremflickr.com/640/360'}
+                // }
+                source={videoPath}
                 style={s.backgroundImage}
               >
                 <View />
               </ImageBackground>
+              {/*<Video*/}
+              {/*  // source={videoPath}*/}
+              {/*  // style={styles.backgroundVideo}*/}
+              {/*  muted={true}*/}
+              {/*  repeat={true}*/}
+              {/*  paused={false}*/}
+              {/*  shouldPlay*/}
+              {/*  resizeMode={'cover'}*/}
+              {/*  rate={1.0}*/}
+              {/*  ignoreSilentSwitch={'obey'}*/}
+              {/*/>*/}
               <RendererHelper
                 currentColor={color}
                 currentOpacity={opacity}
