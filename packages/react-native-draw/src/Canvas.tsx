@@ -4,9 +4,7 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
-import { Video, AVPlaybackStatus } from 'expo-av';
 
-// const { width, height } = Dimensions.get('window');
 const videoPath = require('/Users/justinconger/ReactNative/ReactNativeDraw/example/src/assets/KOKOROlogo.png');
 import {
   Animated,
@@ -452,7 +450,6 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
     });
 
     return (
-
       <GestureHandlerRootView style={canvasContainerStyles}>
         <Animated.View>
           <GestureDetector gesture={panGesture}>
@@ -462,22 +459,11 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
                 // source={{ uri: 'https://picsum.photos/200/300' }}
                 // source={{ uri: 'https://loremflickr.com/640/360'}
                 // }
-                source={videoPath}
+                // source={videoPath}
                 style={s.backgroundImage}
               >
                 <View />
               </ImageBackground>
-              {/*<Video*/}
-              {/*  // source={videoPath}*/}
-              {/*  // style={styles.backgroundVideo}*/}
-              {/*  muted={true}*/}
-              {/*  repeat={true}*/}
-              {/*  paused={false}*/}
-              {/*  shouldPlay*/}
-              {/*  resizeMode={'cover'}*/}
-              {/*  rate={1.0}*/}
-              {/*  ignoreSilentSwitch={'obey'}*/}
-              {/*/>*/}
               <RendererHelper
                 currentColor={color}
                 currentOpacity={opacity}
