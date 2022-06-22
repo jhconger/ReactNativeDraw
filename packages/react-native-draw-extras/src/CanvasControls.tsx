@@ -114,7 +114,7 @@ const CanvasControls: React.FC<CanvasControlsProps> = ({
               style={buttonStyle}
               onPress={onSave}
             >
-              <Save fill={saveButtonColor} height={30} width={30} />
+              <Save />
             </Button>
           </View>
         )}
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   content: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     marginHorizontal: 15,
   },
   buttonsContainer: {
