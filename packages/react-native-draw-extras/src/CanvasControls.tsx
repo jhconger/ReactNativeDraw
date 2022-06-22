@@ -4,13 +4,14 @@ import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import {
   DEFAULT_BRUSH_PREVIEW,
   DEFAULT_DELETE_BUTTON_COLOR,
+  DEFAULT_SAVE_BUTTON_COLOR,
   DEFAULT_OTHER_BUTTONS_COLOR,
   DEFAULT_TOOL,
 } from './constants';
 import { DrawingTool } from './types';
 import BrushPreview, { BrushPreviewProps } from './BrushPreview';
 import Button from './Button';
-import { Brush, Delete, Eraser, Palette, Undo } from './icons';
+import { Brush, Delete, Eraser, Palette, Undo, Save } from './icons';
 
 export interface CanvasControlsProps extends BrushPreviewProps {
   /**
@@ -22,7 +23,10 @@ export interface CanvasControlsProps extends BrushPreviewProps {
    * Callback when the undo button is pressed
    */
   onUndo?: () => void;
-
+  //
+  //todo: make save function
+  //
+  onSave?: () => void;
   /**
    * Callback when the eraser button is pressed
    */
@@ -50,6 +54,7 @@ export interface CanvasControlsProps extends BrushPreviewProps {
    */
   deleteButtonColor?: string;
 
+  saveButtonColor?: string;
   /**
    * Other buttons color (undo and eraser mode toggle)
    * @default DEFAULT_OTHER_BUTTONS_COLOR
@@ -66,11 +71,13 @@ export interface CanvasControlsProps extends BrushPreviewProps {
 const CanvasControls: React.FC<CanvasControlsProps> = ({
   onClear,
   onUndo,
+  onSave,
   onToggleEraser,
   onToggleBrushProperties,
   buttonStyle,
   tool = DEFAULT_TOOL,
   deleteButtonColor = DEFAULT_DELETE_BUTTON_COLOR,
+  saveButtonColor = DEFAULT_SAVE_BUTTON_COLOR,
   otherButtonsColor = DEFAULT_OTHER_BUTTONS_COLOR,
   color,
   thickness,
@@ -100,8 +107,18 @@ const CanvasControls: React.FC<CanvasControlsProps> = ({
             </Button>
           </View>
         )}
+        {onSave && (
+          <View style={onClear && styles.endButton}>
+            <Button
+              color={saveButtonColor}
+              style={buttonStyle}
+              onPress={onSave}
+            >
+              <Save fill={saveButtonColor} height={30} width={30} />
+            </Button>
+          </View>
+        )}
       </View>
-
       <BrushPreview
         color={color}
         opacity={opacity}

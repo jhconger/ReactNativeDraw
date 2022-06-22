@@ -26,7 +26,9 @@ export default () => {
   const handleClear = () => {
     canvasRef.current?.clear();
   };
-
+  const handleSave = () => {
+    canvasRef.current?.getSvg;
+  };
   const handleToggleEraser = () => {
     setTool((prev) =>
       prev === DrawingTool.Brush ? DrawingTool.Eraser : DrawingTool.Brush
@@ -56,8 +58,6 @@ export default () => {
 
   return (
     <>
-
-
       <Canvas
         ref={canvasRef}
         height={625}
@@ -69,11 +69,10 @@ export default () => {
           borderBottomWidth: StyleSheet.hairlineWidth,
           borderColor: theme.colors.border,
         }}
-
       />
       <View>
-
         <CanvasControls
+          onSave={handleSave}
           onUndo={handleUndo}
           onClear={handleClear}
           onToggleEraser={handleToggleEraser}

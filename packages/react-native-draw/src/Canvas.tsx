@@ -5,7 +5,6 @@ import React, {
   useState,
 } from 'react';
 
-const videoPath = require('/Users/justinconger/ReactNative/ReactNativeDraw/example/src/assets/KOKOROlogo.png');
 import {
   Animated,
   Dimensions,
@@ -213,7 +212,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
       opacity = DEFAULT_OPACITY,
       initialPaths = [],
       style,
-      height = screenHeight - 80,
+      height = screenHeight - 100,
       width = screenWidth,
       simplifyOptions = {},
       onPathsChange,
@@ -281,7 +280,6 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
       setPaths([]);
       setPath([]);
     };
-
     const getPaths = () => paths;
 
     const addPath = (newPath: PathType) =>
@@ -456,7 +454,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
             <View>
               <ImageBackground
                 // source={require('example/src/assets/img.png')}
-                // source={{ uri: 'https://picsum.photos/200/300' }}
+                source={{ uri: 'https://picsum.photos/200/300' }}
                 // source={{ uri: 'https://loremflickr.com/640/360'}
                 // }
                 // source={videoPath}
@@ -493,7 +491,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   canvasOverlay: {
-    // imageBackground: source={require('example/src/assets/KOKOROlogo.png')},
     position: 'absolute',
     height: '100%',
     width: '100%',
