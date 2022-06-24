@@ -4,7 +4,6 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
-
 import {
   Animated,
   Dimensions,
