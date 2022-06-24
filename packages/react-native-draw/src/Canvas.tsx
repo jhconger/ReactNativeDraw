@@ -211,7 +211,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
       opacity = DEFAULT_OPACITY,
       initialPaths = [],
       style,
-      height = screenHeight - 80,
+      height = screenHeight - 100,
       width = screenWidth,
       simplifyOptions = {},
       onPathsChange,
@@ -279,7 +279,6 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
       setPaths([]);
       setPath([]);
     };
-
     const getPaths = () => paths;
 
     const addPath = (newPath: PathType) =>
@@ -491,7 +490,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   canvasOverlay: {
-    // imageBackground: source={require('example/src/assets/KOKOROlogo.png')},
     position: 'absolute',
     height: '100%',
     width: '100%',
