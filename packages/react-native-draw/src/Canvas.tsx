@@ -4,8 +4,6 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react';
-
-const videoPath = require('/Users/justinconger/ReactNative/ReactNativeDraw/example/src/assets/KOKOROlogo.png');
 import {
   Animated,
   Dimensions,
@@ -456,7 +454,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
             <View>
               <ImageBackground
                 // source={require('example/src/assets/img.png')}
-                // source={{ uri: 'https://picsum.photos/200/300' }}
+                source={{ uri: 'https://picsum.photos/200/300' }}
                 // source={{ uri: 'https://loremflickr.com/640/360'}
                 // }
                 // source={videoPath}
