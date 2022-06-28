@@ -139,7 +139,7 @@ export interface CanvasRef {
    * Undo last brush stroke
    */
   undo: () => void;
-
+  save: () => void;
   /**
    * Removes all brush strokes
    */
@@ -275,6 +275,27 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
       );
     };
 
+    const save = () => {
+      setPaths((list) =>
+        list.reduce((acc: PathType[], p, index) => {
+          if (index === list.length - 1) {
+            if (p.data.length > 1) {
+              return [
+                ...acc,
+                {
+                  ...p,
+                  data: p.data.slice(0, -1),
+                  path: p.path!.slice(0, -1),
+                },
+              ];
+            }
+            return acc;
+          }
+          return [...acc, p];
+        }, [])
+      );
+    };
+
     const clear = () => {
       setPaths([]);
       setPath([]);
@@ -318,6 +339,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
 
     useImperativeHandle(ref, () => ({
       undo,
+      save,
       clear,
       getPaths,
       addPath,

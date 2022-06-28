@@ -7,7 +7,6 @@ import {
   DEFAULT_COLORS,
 } from '@benjeau/react-native-draw-extras';
 import { useTheme } from '@react-navigation/native';
-
 export default () => {
   const theme = useTheme();
 
@@ -27,7 +26,7 @@ export default () => {
     canvasRef.current?.clear();
   };
   const handleSave = () => {
-    canvasRef.current?.getSvg;
+    canvasRef.current?.undo;
   };
   const handleToggleEraser = () => {
     setTool((prev) =>
