@@ -22,9 +22,9 @@ const SVGRenderer: React.FC<RendererProps> = ({ paths, height, width }) => (
             fill="none"
             stroke={color}
             strokeWidth={thickness}
-            strokeLinecap="round"
+            strokeLinecap="square"
             opacity={opacity}
-            strokeLinejoin="round"
+            strokeLinejoin="bevel"
           />
         ))
       )
@@ -53,9 +53,9 @@ const SVGRendererPath: React.FC<SVGRendererPathProps> = ({
       fill="none"
       stroke={color}
       strokeWidth={thickness}
-      strokeLinecap="round"
+      strokeLinecap="butt"
       opacity={opacity}
-      strokeLinejoin="round"
+      strokeLinejoin="miter"
     />
   );
 };

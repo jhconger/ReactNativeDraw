@@ -9,7 +9,7 @@ export const createSVGPath = (
   if (points.length > 1) {
     try {
       return simplifySvgPath(points, {
-        precision: roundPoints ? 0 : 5,
+        precision: roundPoints ? 0 : 1,
         tolerance,
       });
     } catch (error) {

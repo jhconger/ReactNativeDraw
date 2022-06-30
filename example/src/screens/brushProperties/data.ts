@@ -29,7 +29,7 @@ const data: Data[] = [
         props: {
           color: DEFAULT_COLORS[0][0][0],
           onColorChange: () => {},
-          thickness: 6,
+          thickness: 21,
           opacity: 0.4,
           onThicknessChange: () => {},
           onOpacityChange: () => {},
@@ -40,7 +40,7 @@ const data: Data[] = [
         props: {
           color: DEFAULT_COLORS[0][0][0],
           onColorChange: () => {},
-          thickness: 6,
+          thickness: 21,
           opacity: 0.4,
           onThicknessChange: () => {},
           onOpacityChange: () => {},

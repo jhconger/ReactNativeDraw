@@ -29,11 +29,18 @@ export const usePainter = () => {
     if (!ctx || !ctx.current) {
       return;
     }
+    ctx.current.strokeStyle = `hsl(${hue.current},${selectedSaturation.current}%,${selectedLightness.current}%)`;
+    ctx.current.globalCompositeOperation = 'source-over';
+
+    hue.current++;
+
+    if (hue.current >= 360) hue.current = 0;
     ctx.current.beginPath();
     ctx.current.moveTo(lastX.current, lastY.current);
     ctx.current.lineTo(event.offsetX, event.offsetY);
     ctx.current.stroke();
-
+    ctx.current.shadowColor = 'red';
+    ctx.current.shadowBlur = 95;
     [lastX.current, lastY.current] = [event.offsetX, event.offsetY];
   }, []);
 
@@ -105,9 +112,9 @@ export const usePainter = () => {
       canvas.current.height = window.innerHeight;
 
       ctx.current.strokeStyle = '#000';
-      ctx.current.lineJoin = 'round';
-      ctx.current.lineCap = 'round';
-      ctx.current.lineWidth = 10;
+      ctx.current.lineJoin = 'butt';
+      ctx.current.lineCap = 'butt';
+      ctx.current.lineWidth = 50;
       setIsReady(true);
     }
   }, [drawNormal, handleMouseDown, stopDrawing]);

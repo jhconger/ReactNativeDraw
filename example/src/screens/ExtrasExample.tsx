@@ -13,8 +13,8 @@ export default () => {
   const canvasRef = useRef<CanvasRef>(null);
 
   const [color, setColor] = useState(DEFAULT_COLORS[0][0][9]);
-  const [thickness, setThickness] = useState(5);
-  const [opacity, setOpacity] = useState(1);
+  const [thickness, setThickness] = useState(21);
+  const [opacity, setOpacity] = useState(5);
   const [tool, setTool] = useState(DrawingTool.Brush);
   const [visibleBrushProperties, setVisibleBrushProperties] = useState(false);
 
@@ -54,7 +54,6 @@ export default () => {
       });
     }
   };
-
   return (
     <>
       <Canvas

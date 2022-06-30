@@ -225,7 +225,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
     simplifyOptions = {
       simplifyPaths: true,
       simplifyCurrentPath: false,
-      amount: 21,
+      amount: 0,
       roundPoints: true,
       ...simplifyOptions,
     };
@@ -312,7 +312,7 @@ const Canvas = forwardRef<CanvasRef, CanvasProps>(
         strokeWidth: number,
         strokeOpacity: number
       ) =>
-        `<path d="${d}" stroke="${stroke}" stroke-width="${strokeWidth}" opacity="${strokeOpacity}" stroke-linecap="round" stroke-linejoin="round" fill="none"/>`;
+        `<path d="${d}" stroke="${stroke}" stroke-width="${strokeWidth}" opacity="${strokeOpacity}" stroke-linecap="poly" stroke-linejoin="poly" fill="red"/>`;
 
       const separatePaths = (p: PathType) =>
         p.path!.reduce(

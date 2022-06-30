@@ -53,7 +53,7 @@ const data: Data[] = [
         description: 'Live SVG path simplification',
         props: {
           simplifyOptions: {
-            simplifyCurrentPath: true,
+            simplifyCurrentPath: false,
           },
         },
       },
